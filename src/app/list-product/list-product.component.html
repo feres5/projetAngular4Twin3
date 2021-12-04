@@ -1,5 +1,13 @@
+
+  <div class="row g-3">
+    <div class="col-auto">
+      <input class="form-control pull-right" placeholder="Type to search..." [(ngModel)]="filteredString">
+    </div>
+  </div>
+
+<hr>
 <div class="row">
-  <div class="col-md-auto" *ngFor="let product of products; let i = index">
+  <div class="col-md-auto" *ngFor="let product of listProducts | async  | filter:filteredString:'title' ; let i = index">
     <div class="card"
          style="width: 18rem;">
       <img class="card-img-top"
@@ -10,7 +18,7 @@
         <p class="card-text"> Price : <strong>{{ product.price }} $ </strong>
         </p>
         <p class="card-text">Quantity
-          :<strong> {{product.quantity}} </strong>  </p>
+          :<strong> {{product.quantity}} </strong></p>
         <a href="#" class="btn btn-primary">Nb likes : {{product.like}}</a>
 
         <button class="btn btn-danger btn-sm rounded-0 pull-right m-1"

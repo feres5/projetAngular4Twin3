@@ -8,16 +8,10 @@
       "like": 0
     },
     {
-      "id": 99,
+      "id": 55,
       "title": "test",
-      "price": 7899,
-      "quantity": 124
-    },
-    {
-      "id": 7777,
-      "title": "testt",
-      "price": 1152,
-      "quantity": 788
+      "price": 55,
+      "quantity": 55
     }
   ]
 }

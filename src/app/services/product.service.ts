@@ -18,14 +18,22 @@ export class ProductService {
   }
 
   getproducts() {
-    return this.http.get<Product[]>(this.url).subscribe(products => {
-        this.products = products;
-        this.productsChanged.next(products);
-      }
-    );
+    // return this.http.get<Product[]>(this.url).subscribe(products => {
+    //     this.products = products;
+    //     this.productsChanged.next(products);
+    //   }
+    // );
+    return this.http.get<Product[]>(this.url).pipe(tap(products => {
+      this.products = products;
+    } ));
   }
+
   getproduct(index: number) {
     return this.products[index];
+  }
+
+  updateProduct(product: Product) {
+    return this.http.put(this.url + '/' + product.id, product);
   }
 
   PostProduct(product: Product) {

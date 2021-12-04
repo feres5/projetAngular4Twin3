@@ -33,7 +33,11 @@ export class ProductEditComponent implements OnInit {
 
   onSubmit() {
     if (this.editMode) {
-
+      this.productService.updateProduct(this.productForm.value).subscribe(response => {
+        // console.log(response);
+      }, error => {
+        console.log(error);
+      });
     } else {
       this.productService.PostProduct(this.productForm.value).subscribe(response => {
         // console.log(response);
@@ -54,7 +58,6 @@ export class ProductEditComponent implements OnInit {
   }
 
   private initForm() {
-    console.log(this.editMode);
     let productId = null;
     let productTitle = '';
     let productPrice = null;
