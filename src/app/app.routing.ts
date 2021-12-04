@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
 // Import Containers
-import { DefaultLayoutComponent } from './containers';
+import {DefaultLayoutComponent} from './containers';
 
-import { P404Component } from './views/error/404.component';
-import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
+import {P404Component} from './views/error/404.component';
+import {P500Component} from './views/error/500.component';
+import {LoginComponent} from './views/login/login.component';
+import {RegisterComponent} from './views/register/register.component';
+import {ListProductComponent} from './list-product/list-product.component';
+import {ProductEditComponent} from './list-product/product-edit/product-edit.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +45,7 @@ export const routes: Routes = [
       title: 'Register Page'
     }
   },
+
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -72,7 +75,8 @@ export const routes: Routes = [
       },
       {
         path: 'notifications',
-        loadChildren: () => import('./views/notifications/notifications.module').then(m => m.NotificationsModule)
+        loadChildren: () => import('./views/notifications/notifications.module').then(
+          m => m.NotificationsModule)
       },
       {
         path: 'theme',
@@ -81,14 +85,44 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
+      },
+      {
+        path: 'products',
+        data: {
+          title: 'products'
+        },
+        children: [
+          {
+            path: '',
+            component: ListProductComponent,
+            data: {
+              title: 'All products'
+            }
+          },
+          {
+            path: 'add',
+            component: ProductEditComponent,
+            data: {
+              title: 'Add product'
+            }
+          },
+          {
+            path: ':id/edit',
+            component: ProductEditComponent,
+            data: {
+              title: 'Edit product'
+            }
+          }
+        ]
       }
     ]
   },
-  { path: '**', component: P404Component }
+  {path: '**', component: P404Component}
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

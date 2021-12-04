@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ColorsComponent } from './colors.component';
 import { TypographyComponent } from './typography.component';
+import {ListProductComponent} from '../../list-product/list-product.component';
 
 const routes: Routes = [
   {
@@ -21,14 +22,14 @@ const routes: Routes = [
         data: {
           title: 'Colors'
         }
-      },
-      {
-        path: 'typography',
-        component: TypographyComponent,
-        data: {
-          title: 'Typography'
-        }
       }
+      // {
+      //   path: 'products',
+      //   component: ListProductComponent,
+      //   data: {
+      //     title: 'products'
+      //   }
+      // }
     ]
   }
 ];

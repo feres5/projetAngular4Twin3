@@ -1,4 +1,4 @@
-import { INavData } from '@coreui/angular';
+import {INavData} from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
@@ -20,9 +20,20 @@ export const navItems: INavData[] = [
     icon: 'icon-drop'
   },
   {
-    name: 'Typography',
-    url: '/theme/typography',
-    icon: 'icon-pencil'
+    name: 'Products',
+    icon: 'icon-pie-chart',
+    children: [
+      {
+        name: '  All Products',
+        url: '/products',
+        icon: 'icon-pie-chart'
+      },
+      {
+        name: '  Add product',
+        url: '/products/add',
+        icon: 'icon-pencil'
+      }
+    ]
   },
   {
     title: true,
@@ -231,21 +242,7 @@ export const navItems: INavData[] = [
       variant: 'secondary',
       text: 'NEW'
     },
-    attributes: { disabled: true },
+    attributes: {disabled: true},
   },
-  {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
-    class: 'mt-auto',
-    variant: 'success',
-    attributes: { target: '_blank', rel: 'noopener' }
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger',
-    attributes: { target: '_blank', rel: 'noopener' }
-  }
+
 ];
