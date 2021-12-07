@@ -1,1 +1,78 @@
-<p>new-facture works!</p>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <strong>New Facrure</strong>
+          <small>Form</small>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="factureForm" (ngSubmit)="addFacture(factureForm)" class="form-horizontal">
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="company">montantRemise</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" formControlName="montantRemise" id="company"
+                       placeholder="Enter montant remise">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="vat">montant Facture</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" formControlName="montanttFacture" id="vat"
+                       placeholder="Enter montat facture">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" for="date-input">Date</label>
+              <div class="col-md-9">
+                <input class="form-control" id="date-input" formControlName="date" type="date" name="date-input"
+                       placeholder="date">
+                <span class="help-block">Please enter a valid date</span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">Active</label>
+
+              <div class="col-md-9">
+                <div class="form-check form-check-inline mr-1">
+                  <input formControlName="active" class="form-check-input" type="checkbox" id="inline-checkbox1">
+                  <label class="form-check-label" for="inline-checkbox1">yes</label>
+                </div>
+              </div>
+            </div>
+            <!--
+             <div class="row">
+               <div class="form-group col-sm-8">
+                 <label for="city">active</label>
+                 <input type="text" class="form-control" id="city" placeholder="Enter your city">
+               </div>
+               <div class="form-group col-sm-4">
+                 <label for="postal-code">Postal Code</label>
+                 <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
+               </div>
+             </div>
+             -->
+            <!--/.row-->
+
+            <!--
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" id="country" placeholder="Country name">
+            </div>
+            -->
+            <div class="card-footer">
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+              <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div><!--/.col-->
+  </div>
+</div>

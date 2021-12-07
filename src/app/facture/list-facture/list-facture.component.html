@@ -1,0 +1,33 @@
+<div class="animated fadeIn">
+  <div class="container">
+    <table class="table table-bordered table-hover table-fluid">
+      <thead class="table-dark">
+      <tr>
+        <td>ID</td>
+        <td>montat remise</td>
+        <td>montat facture</td>
+        <td>date</td>
+        <td>active</td>
+        <td>client</td>
+        <td>detailfacture</td>
+        <td>actions</td>
+      </tr>
+      </thead>
+      <tbody class="table-light ">
+      <tr *ngFor="let facture of allFactures">
+        <td>{{facture.idFacture}}</td>
+        <td>{{facture.montantRemise}}</td>
+        <td>{{facture.montanttFacture}}</td>
+        <td>{{facture.date}}</td>
+        <td>{{facture.active}}</td>
+        <td>{{facture.client}}</td>
+        <td>{{facture.detailFacture}}</td>
+        <td>
+          <button class="btn btn-outline-warning" [routerLink]="['update/',facture?.idFacture]">modify</button>
+          <button class="btn btn-outline-danger" (click)="delete(facture)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
