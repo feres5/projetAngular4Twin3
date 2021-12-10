@@ -15,6 +15,9 @@ export class FactureServiceService {
     console.log('retrive service');
     return this.http.get<Facture[]>(this.url + '/retrive-all-factures');
   }
+  getFactureById(id: number) {
+    return this.http.get<Facture>(this.url + '/retrive-facture/' + id );
+  }
   addFacture(facture: Facture) {
     return this.http.post(this.url + '/add-facture', facture);
   }

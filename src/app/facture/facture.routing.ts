@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {NewFactureComponent} from './new-facture/new-facture.component';
 import {UpdateFactureComponent} from './update-facture/update-facture.component';
 import {ListFactureComponent} from './list-facture/list-facture.component';
+import {DetailFactureComponent} from './detail-facture/detail-facture.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,13 @@ const routes: Routes = [
     component: UpdateFactureComponent,
     data: {
       title: 'update facture'
+    }
+  },
+  {
+    path: 'detailfacture/:factureId',
+    component: DetailFactureComponent,
+    data: {
+      title: 'detail facture'
     }
   }
 

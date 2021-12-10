@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div id="invoice">
+        <div class="toolbar hidden-print">
+          <div class="text-end">
+            <button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
+            <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+          </div>
+          <hr>
+        </div>
+        <div class="invoice overflow-auto">
+          <div style="min-width: 600px">
+            <header>
+              <div class="row">
+                <div class="col">
+                  <a href="javascript:;">
+                    <img src="assets/images/logo-icon.png" width="80" alt="">
+                  </a>
+                </div>
+                <div class="col company-details">
+                  <h2 class="name">
+                    <a target="_blank" href="javascript:;">
+                      E-Shop
+                    </a>
+                  </h2>
+                  <div>90 Ave Mohamed V, Ariana 1002</div>
+                  <div>(+216) 71-456-789</div>
+                  <div>Esprit2122-4TWIN3@esprit.tn</div>
+                </div>
+              </div>
+            </header>
+            <main>
+              <div class="row contacts">
+                <div class="col invoice-to">
+                  <div class="text-gray-light">Facture pour:</div>
+                  <h2 class="to"></h2>
+                  <div class="address">796 Silver Harbour, TX 79273, US</div>
+                  <div class="email"><a href="mailto:john@example.com">john@example.com</a>
+                  </div>
+                </div>
+                <div class="col invoice-details">
+                  <h1 class="invoice-id">Facture : {{facture.idFacture}}</h1>
+                  <div class="date">Date Facture: {{facture.date}}</div>
+                </div>
+              </div>
+              <table>
+                <thead>
+                <tr>
+                  <th># ID</th>
+                  <th class="text-left">Produit</th>
+                  <th class="text-right">Qte</th>
+                  <th class="text-right">Pourcentage remise</th>
+                  <th class="text-right">Montant remise</th>
+                  <th class="text-right">Prix total</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let detail of facture.detailFactures">
+                  <td class="no">{{detail?.idDetailFacture}}</td>
+                  <td class="text-left">
+                    <h3>product name here</h3>
+                  </td>
+                  <td class="qty">{{detail.qte}}</td>
+                  <td class="unit">{{detail.pourcentageRemise}}%</td>
+                  <td class="unit">{{detail.montantRemise}} TND</td>
+                  <td class="total">{{detail.prixTotal}} TND</td>
+                </tr>
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td colspan="2">Montant Remise</td>
+                  <td>{{facture.montantRemise}} TND</td>
+                </tr>
+                <!--
+                <tr>
+                  <td colspan="2"></td>
+                  <td colspan="2">TAX 25%</td>
+                  <td>$1,300.00</td>
+                </tr>
+                -->
+                <tr>
+                  <td colspan="3"></td>
+                  <td colspan="2">Montant Facture</td>
+                  <td>{{facture.montanttFacture}} TND</td>
+                </tr>
+                </tfoot>
+              </table>
+              <div class="thanks">Merci!</div>
+              <div class="notices">
+                <div>NOTICE:</div>
+                <div class="notice">Cette facture contient le garantie de votre produit merci de bien vouloir la garder.</div>
+              </div>
+            </main>
+            <footer>Facture cree par le systeme est valide sans signature.</footer>
+          </div>
+          <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

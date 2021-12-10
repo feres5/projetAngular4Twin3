@@ -1,5 +1,5 @@
 import {Client} from './client';
-import {DetailFacture} from './detailFacture'
+import {DetailFacture} from './detailFacture';
 export class Facture {
   idFacture: number;
   montantRemise: number;
@@ -7,5 +7,5 @@ export class Facture {
   date: Date;
   active: boolean;
   client: Client;
-  detailFacture: DetailFacture[];
+  detailFactures: DetailFacture[];
 }

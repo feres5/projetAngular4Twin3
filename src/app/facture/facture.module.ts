@@ -5,6 +5,7 @@ import { UpdateFactureComponent } from './update-facture/update-facture.componen
 import {FactureRouting} from './facture.routing';
 import { ListFactureComponent } from './list-facture/list-facture.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { DetailFactureComponent } from './detail-facture/detail-facture.component';
 
 
 
@@ -12,7 +13,8 @@ import {ReactiveFormsModule} from '@angular/forms';
   declarations: [
     NewFactureComponent,
     UpdateFactureComponent,
-    ListFactureComponent
+    ListFactureComponent,
+    DetailFactureComponent
   ],
     imports: [
         CommonModule,

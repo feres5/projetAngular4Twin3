@@ -15,7 +15,7 @@
       </thead>
       <tbody class="table-light ">
       <tr *ngFor="let facture of allFactures">
-        <td>{{facture.idFacture}}</td>
+        <td [routerLink]="['detailfacture/',facture.idFacture]">{{facture.idFacture}}</td>
         <td>{{facture.montantRemise}}</td>
         <td>{{facture.montanttFacture}}</td>
         <td>{{facture.date}}</td>
