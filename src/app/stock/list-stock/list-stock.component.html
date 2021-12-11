@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Libelle stock</th>
+    <th>Quantité</th>
+    <th>Quantité min</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let stock of stocks">
+    <td>{{stock.libelleStock}}</td>
+    <td>{{stock.qte}}</td>
+    <td>{{stock.qteMin}}</td>
+
+
+    <td>
+      <button class="btn btn-outline-danger" (click)="delete(stock)" >
+        delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

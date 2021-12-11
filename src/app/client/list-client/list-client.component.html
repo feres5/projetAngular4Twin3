@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>nom</th>
+    <th>prenom</th>
+    <th>email</th>
+    <th>password</th>
+    <th>Date de naissance</th>
+    <th>Categorie</th>
+    <th>profession</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let client of allClient">
+    <td>{{client.nom}}</td>
+    <td>{{client.prenom}}</td>
+    <td>{{client.email}}</td>
+    <td>{{client.password}}</td>
+    <td>{{client.dateNaissance | date: 'dd/MM/yyyy'}}</td>
+    <td>{{client.categorieClient}}</td>
+    <td>{{client.profession}}</td>
+    <td>
+      <button class="btn btn-outline-danger" (click)="delete(client)">
+        delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
