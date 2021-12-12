@@ -21,6 +21,9 @@ export class FactureServiceService {
   addFacture(facture: Facture) {
     return this.http.post(this.url + '/add-facture', facture);
   }
+  updateFacture(id: number, facture: Facture) {
+    return this.http.put(this.url + '/update-facture/' + id, facture);
+  }
   deleteFacture(id: number) {
     return this.http.delete(this.url + '/remove-facture/' + id);
   }

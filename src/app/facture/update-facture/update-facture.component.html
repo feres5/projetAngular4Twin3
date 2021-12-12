@@ -8,23 +8,7 @@
         </div>
 
         <div class="card-body">
-          <form [formGroup]="factureForm"  class="form-horizontal">
-
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="company">montantRemise</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" formControlName="montantRemise" id="company"
-                       placeholder="Enter montant remise">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="vat">montant Facture</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" formControlName="montanttFacture" id="vat"
-                       placeholder="Enter montat facture">
-              </div>
-            </div>
+          <form [formGroup]="factureForm" (ngSubmit)="modFacture(factureForm)" class="form-horizontal">
 
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="date-input">Date</label>
@@ -42,6 +26,41 @@
                 <div class="form-check form-check-inline mr-1">
                   <input formControlName="active" class="form-check-input" type="checkbox" id="inline-checkbox1">
                   <label class="form-check-label" for="inline-checkbox1">yes</label>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary" (click)="addDetailFactureClick()">add detail facture</button>
+                </div>
+              </div>
+              <div formArrayName="detailFactures" *ngFor="let detail of factureForm.get('detailFactures')['controls']; let i = index;">
+                <div [formGroupName]="i">
+                  <div formGroupName="produit">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="company">id produit</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="idProduit" id="company"
+                               placeholder="Enter montant remise">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="vat">quantite</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" formControlName="qte" id="vat"
+                             placeholder="Enter montat facture">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="vat">pourcentage Remise</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" formControlName="pourcentageRemise" id=""
+                             placeholder="Enter montat facture">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

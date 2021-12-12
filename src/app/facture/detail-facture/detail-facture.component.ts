@@ -18,9 +18,9 @@ export class DetailFactureComponent implements OnInit {
     const factureID = this.route.snapshot.params['factureId'];
     this.service.getFactureById(factureID).subscribe(
       (data) => this.facture = data
-      //console.log(this.facture)
+      // console.log(this.facture)
     );
-    console.log("hello");
+    console.log('hello');
     console.log(this.facture);
   }
 

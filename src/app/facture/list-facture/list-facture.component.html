@@ -21,7 +21,9 @@
         <td>{{facture.date}}</td>
         <td>{{facture.active}}</td>
         <td>{{facture.client}}</td>
-        <td>{{facture.detailFacture}}</td>
+        <td>
+          <a *ngFor="let detail of facture.detailFactures">{{detail.idDetailFacture}} </a>
+        </td>
         <td>
           <button class="btn btn-outline-warning" [routerLink]="['update/',facture?.idFacture]">modify</button>
           <button class="btn btn-outline-danger" (click)="delete(facture)">Delete</button>

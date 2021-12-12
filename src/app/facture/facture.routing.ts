@@ -4,6 +4,7 @@ import {NewFactureComponent} from './new-facture/new-facture.component';
 import {UpdateFactureComponent} from './update-facture/update-facture.component';
 import {ListFactureComponent} from './list-facture/list-facture.component';
 import {DetailFactureComponent} from './detail-facture/detail-facture.component';
+import {EditFactureResolver} from '../resolvers/facture/editFacture.resolver';
 
 
 const routes: Routes = [
@@ -25,6 +26,9 @@ const routes: Routes = [
   {
     path: 'update/:factureId',
     component: UpdateFactureComponent,
+    resolve: {
+      facture: EditFactureResolver
+    },
     data: {
       title: 'update facture'
     }
