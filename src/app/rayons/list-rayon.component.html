@@ -19,23 +19,21 @@
 <hr>
 <div class="row">
   <div class="col-md-auto"
-       *ngFor="let product of listProducts | async  | filter:filteredString:'title'  | sort:optionSelected; let i = index">
+       *ngFor="let rayon of listrayons | async  | filter:filteredString:'title'  | sort:optionSelected ; let i = index">
     <div class="card"
          style="width: 18rem;">
       <img class="card-img-top"
            src="https://picsum.photos/id/1/900/500"
            alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{ product.title }}</h5>
-        <p class="card-text"> Price : <strong>{{ product.price }} $ </strong>
+        <h5 class="card-title">{{ rayon.libelle }}</h5>
+        <p class="card-text"> Code : <strong>{{ rayon.code }} $ </strong>
         </p>
-        <p class="card-text">Quantity
-          :<strong> {{product.quantity}} </strong></p>
-        <a href="#" class="btn btn-primary">Nb likes : {{product.like}}</a>
+        <a href="#" class="btn btn-primary"></a>
 
         <button class="btn btn-danger btn-sm rounded-0 pull-right m-1"
                 type="button"
-                (click)="onDelete(product.id)"
+                (click)="onDelete(rayon.idRayon)"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Delete"><i class="fa fa-trash"></i></button>

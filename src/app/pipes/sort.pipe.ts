@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Product} from '../model/product';
+import {Rayon} from '../model/rayon';
 
 @Pipe({
   name: 'sort'
 })
 export class SortPipe implements PipeTransform {
 
-  transform(array: Array<Product>, propName: string): unknown {
+  transform(array: Array<Rayon>, propName: string): unknown {
     array.sort((a: any, b: any) => {
       if (a[propName] < b[propName]) {
         return -1;

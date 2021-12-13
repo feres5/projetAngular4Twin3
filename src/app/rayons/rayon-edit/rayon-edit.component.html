@@ -4,60 +4,30 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="id">ID</label>
-            <input
-              type="number"
-              placeholder="Enter Product ID"
-              id="id"
-              formControlName="id"
-              class="form-control">
-            <span *ngIf="!rayonForm.get('id').valid && rayonForm.get('id').touched "
-                  class="help-block"> Please enter a valid id ( > 0)</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="title">Title</label>
+            <label for="libelle">Title</label>
             <input
               type="text"
-              placeholder="Enter Product title"
-              id="title"
-              formControlName="title"
+              placeholder="Enter Rayon libelle"
+              id="libelle"
+              formControlName="libelle"
               class="form-control">
-            <span *ngIf="!productForm.get('title').valid && productForm.get('title').touched "
-                  class="help-block"> Please enter a title</span>
+            <span *ngIf="!rayonForm.get('libelle').valid && rayonForm.get('libelle').touched "
+                  class="help-block"> Please enter a Rayon libelle</span>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="price">Price</label>
+            <label for="code">Code</label>
             <input
-              type="number"
-              placeholder="Enter Product price"
-              id="price"
-              formControlName="price"
+              type="text"
+              placeholder="Enter rayon Code"
+              id="code"
+              formControlName="code"
               class="form-control">
-            <span *ngIf="!productForm.get('price').valid && productForm.get('price').touched "
-                  class="help-block"> Please enter a valid price ( > 0)</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input
-              type="number"
-              placeholder="Enter Product quantity"
-              id="quantity"
-              formControlName="quantity"
-              class="form-control">
-            <span *ngIf="!productForm.get('quantity').valid && productForm.get('quantity').touched "
-                  class="help-block"> Please enter a valid quantity ( >= 0)</span>
+            <span *ngIf="!rayonForm.get('code').valid && rayonForm.get('code').touched "
+                  class="help-block"> Please enter a Rayon code</span>
           </div>
         </div>
       </div>
@@ -66,7 +36,7 @@
           <button
             type="submit"
             class="btn btn-success"
-            [disabled]="!productForm.valid">Save
+            [disabled]="!rayonForm.valid">Save
           </button>
           <button type="button" class="btn btn-danger" (click)="onCancel()">
             Cancel

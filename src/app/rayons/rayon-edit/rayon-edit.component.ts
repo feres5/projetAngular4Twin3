@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {ProductService} from '../../services/product.service';
-import {RayonService} from "../../services/rayon.service";
+import {RayonService} from '../../services/rayon.service';
 
 @Component({
   selector: 'app-rayon-edit',
@@ -60,30 +59,24 @@ export class RayonEditComponent implements OnInit {
 
   private initForm() {
     let rayonId = null;
-    let rayonTitle = '';
-    let rayonPrice = null;
-    let rayonQuantity = null;
+    let rayonLibelle = '';
+    let rayonCode = '';
 
     if (this.editMode) {
       const rayon = this.rayonService.getRayon(this.id);
-      rayonId = rayon.id;
-      rayonTitle = rayon.title;
-      rayonPrice = rayon.price;
-      rayonQuantity = rayon.quantity;
+      rayonId = rayon.idRayon;
+      rayonLibelle = rayon.libelle;
+      rayonCode = rayon.code;
     }
     this.rayonForm = new FormGroup({
-      'id': new FormControl(
+      'idRayon': new FormControl(
         rayonId,
         [Validators.required, Validators.min(0)]
       ),
-      'title': new FormControl(rayonTitle, Validators.required),
-      'price': new FormControl(
-        rayonPrice,
-        [Validators.required, Validators.min(1)]
-      ),
-      'quantity': new FormControl(
-        rayonQuantity,
-        [Validators.required, Validators.min(0)]
+      'libelle': new FormControl(rayonLibelle, Validators.required),
+      'code': new FormControl(
+        rayonCode,
+        [Validators.required]
       )
     });
   }
