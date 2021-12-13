@@ -87,34 +87,10 @@ export const routes: Routes = [
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
       },
       {
-        path: 'products',
-        data: {
-          title: 'products'
-        },
-        children: [
-          {
-            path: '',
-            component: ListProductComponent,
-            data: {
-              title: 'All products'
-            }
-          },
-          {
-            path: 'add',
-            component: ProductEditComponent,
-            data: {
-              title: 'Add product'
-            }
-          },
-          {
-            path: ':id/edit',
-            component: ProductEditComponent,
-            data: {
-              title: 'Edit product'
-            }
-          }
-        ]
-      }
+        path: 'rayons',
+        loadChildren: () => import('./rayons/rayons.module').then(m => m.RayonsModule)
+      },
+
     ]
   },
   {path: '**', component: P404Component}

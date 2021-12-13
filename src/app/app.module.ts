@@ -48,6 +48,7 @@ import { ProductEditComponent } from './list-product/product-edit/product-edit.c
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterPipe } from './list-product/filter.pipe';
 import { SortPipe } from './list-product/sort.pipe';
+import {RayonsModule} from "./rayons/rayons.module";
 
 
 
@@ -69,19 +70,16 @@ import { SortPipe } from './list-product/sort.pipe';
     IconSetModule.forRoot(),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RayonsModule
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     P404Component,
     P500Component,
-    ListProductComponent,
     LoginComponent,
     RegisterComponent,
-    ProductEditComponent,
-    FilterPipe,
-    SortPipe
   ],
   providers: [
     {
