@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Facture} from '../../model/facture';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FactureServiceService} from '../../services/facture-service.service';
+import {FactureFormService} from '../../services/facture-form.service';
 
 @Component({
   selector: 'app-update-facture',
@@ -17,7 +18,8 @@ export class UpdateFactureComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private service: FactureServiceService) {
+    private service: FactureServiceService,
+    private sharedService: FactureFormService) {
   }
 
   ngOnInit(): void {
@@ -27,8 +29,7 @@ export class UpdateFactureComponent implements OnInit {
     console.log(this.facture);
 
     this.factureForm = this.fb.group({
-      date: [this.facture.date, Validators.required],
-      active: [this.facture.active, Validators.required],
+      header: this.sharedService.sharedFactureForm(),
       detailFactures: this.fb.array([
         this.addDetailFactureFormGroup()
       ])
@@ -50,6 +51,7 @@ export class UpdateFactureComponent implements OnInit {
     this.service.updateFacture(this.facture.idFacture, factureForm.value).subscribe(
       data => {
         console.log(data);
+        this.router.navigate(['facture']);
       },
       error => {
         console.log(error);

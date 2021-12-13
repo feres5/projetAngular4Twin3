@@ -1,4 +1,8 @@
+<app-new-facture [hidden]="hidden"></app-new-facture>
 <div class="animated fadeIn">
+  <button (click)="showAddFacture()" class="btn btn-outline-primary">add new facture</button>
+  <br>
+  <br>
   <div class="container">
     <table class="table table-bordered table-hover table-fluid">
       <thead class="table-dark">
@@ -14,7 +18,7 @@
       </tr>
       </thead>
       <tbody class="table-light ">
-      <tr *ngFor="let facture of allFactures | paginate: {itemsPerPage: 1, currentPage: page, totalItems: totalLength}">
+      <tr *ngFor="let facture of allFactures | paginate: {itemsPerPage: 5, currentPage: page, totalItems: totalLength}">
         <td [routerLink]="['detailfacture/',facture.idFacture]">{{facture.idFacture}}</td>
         <td>{{facture.montantRemise}}</td>
         <td>{{facture.montanttFacture}}</td>

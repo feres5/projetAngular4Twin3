@@ -5,6 +5,7 @@ import {UpdateFactureComponent} from './update-facture/update-facture.component'
 import {ListFactureComponent} from './list-facture/list-facture.component';
 import {DetailFactureComponent} from './detail-facture/detail-facture.component';
 import {EditFactureResolver} from '../resolvers/facture/editFacture.resolver';
+import {TestFormComponent} from './test-form/test-form.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
     data: {
       title: 'detail facture'
     }
+  },
+  {
+    path: 'test',
+    component: TestFormComponent
   }
 
 ];

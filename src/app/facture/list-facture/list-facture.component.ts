@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FactureServiceService} from '../../services/facture-service.service';
 import {Facture} from '../../model/facture';
 
+
 @Component({
   selector: 'app-list-facture',
   templateUrl: './list-facture.component.html',
@@ -11,6 +12,7 @@ export class ListFactureComponent implements OnInit {
   allFactures: Facture[];
   totalLength: any;
   page: number = 1 ;
+  hidden: boolean = true;
 
   constructor(private service: FactureServiceService) { }
 
@@ -30,6 +32,14 @@ export class ListFactureComponent implements OnInit {
     this.service.deleteFacture(facture.idFacture).subscribe(
       () => this.allFactures.splice(i, 1)
     );
+  }
+
+  showAddFacture() {
+    if (this.hidden === true) {
+      this.hidden = false;
+    } else {
+      this.hidden = true;
+    }
   }
 
 }

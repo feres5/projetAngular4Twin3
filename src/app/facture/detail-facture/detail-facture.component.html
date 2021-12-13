@@ -5,19 +5,21 @@
         <div class="toolbar hidden-print">
           <div class="text-end">
             <button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
-            <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+            <button type="button" class="btn btn-danger" (click)="makePdf()"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
           </div>
           <hr>
         </div>
-        <div class="invoice overflow-auto">
-          <div style="min-width: 600px">
+        <div class="invoice overflow-auto" id="content" #content>
+          <div>
             <header>
               <div class="row">
+                <!--
                 <div class="col">
                   <a href="javascript:;">
                     <img src="assets/images/logo-icon.png" width="80" alt="">
                   </a>
                 </div>
+                -->
                 <div class="col company-details">
                   <h2 class="name">
                     <a target="_blank" href="javascript:;">
@@ -44,7 +46,7 @@
                   <div class="date">Date Facture: {{facture.date}}</div>
                 </div>
               </div>
-              <table>
+              <table class="table" >
                 <thead>
                 <tr>
                   <th># ID</th>
@@ -75,13 +77,6 @@
                   <td colspan="2">Montant Remise</td>
                   <td>{{facture.montantRemise}} TND</td>
                 </tr>
-                <!--
-                <tr>
-                  <td colspan="2"></td>
-                  <td colspan="2">TAX 25%</td>
-                  <td>$1,300.00</td>
-                </tr>
-                -->
                 <tr>
                   <td colspan="3"></td>
                   <td colspan="2">Montant Facture</td>

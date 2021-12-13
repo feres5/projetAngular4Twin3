@@ -3,6 +3,7 @@ import {FactureServiceService} from '../../services/facture-service.service';
 import {Facture} from '../../model/facture';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {FactureFormService} from '../../services/facture-form.service';
 
 @Component({
   selector: 'app-new-facture',
@@ -13,13 +14,13 @@ export class NewFactureComponent implements OnInit {
   factureForm: FormGroup;
 
   constructor(private service: FactureServiceService,
+              private sharedService: FactureFormService,
               private fb: FormBuilder,
               private router: Router) { }
 
   ngOnInit(): void {
     this.factureForm = this.fb.group({
-      date: [null, Validators.required],
-      active: [null, Validators.required],
+      header: this.sharedService.sharedFactureForm(),
       detailFactures: this.fb.array([
         this.addDetailFactureFormGroup()
       ])
@@ -40,6 +41,8 @@ export class NewFactureComponent implements OnInit {
     });
   }
 
+
+
   addFacture(facture: FormGroup) {
     console.log(facture.value);
     this.service.addFacture(facture.value).subscribe(
@@ -52,6 +55,13 @@ export class NewFactureComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  get detailFactures(): FormArray {
+    return this.factureForm.get('detailFactures') as FormArray;
+  }
+  getValidity(i) {
+    return (<FormArray>this.factureForm.get('detailFactures')).controls[i].invalid;
   }
 
 }
