@@ -42,13 +42,9 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import {ListProductComponent} from './list-product/list-product.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ProductEditComponent } from './list-product/product-edit/product-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FilterPipe } from './list-product/filter.pipe';
-import { SortPipe } from './list-product/sort.pipe';
-import {RayonsModule} from "./rayons/rayons.module";
+import {RayonsModule} from './rayons/rayons.module';
 
 
 

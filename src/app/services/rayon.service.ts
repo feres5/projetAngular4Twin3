@@ -12,7 +12,7 @@ export class RayonService {
   rayons: Rayon [];
  // productsChanged = new Subject<Product[]>();
 
-  url = 'http://localhost:3000/products';
+  url = 'http://localhost:8090/springMVC/rayons';
 
   constructor(private http: HttpClient) {
   }

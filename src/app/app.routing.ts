@@ -10,6 +10,7 @@ import {LoginComponent} from './views/login/login.component';
 import {RegisterComponent} from './views/register/register.component';
 import {ListProductComponent} from './list-product/list-product.component';
 import {ProductEditComponent} from './list-product/product-edit/product-edit.component';
+import {RayonEditComponent} from "./rayons/rayon-edit/rayon-edit.component";
 
 export const routes: Routes = [
   {
