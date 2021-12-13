@@ -11,6 +11,8 @@ import {StockService} from '../../services/stock.service';
   ]
 })
 export class ListStockComponent implements OnInit {
+  stocku = new Stock();
+  showFormUpdate = false;
 stocks: Stock[];
   constructor(private stockService: StockService) { }
 
@@ -21,4 +23,13 @@ stocks: Stock[];
     this.stockService.deleteStock(stock.idStock).subscribe(() => this.stockService.getListStock().subscribe((data) => this.stocks = data ));
   }
 
+  showUpdate(stock: Stock) {
+    this.showFormUpdate = !this.showFormUpdate;
+this.stocku = stock;
+  }
+
+  update(stock: Stock) {
+    this.stockService.updateClient(stock).subscribe(() => this.stockService.getListStock().subscribe((data) => this.stocks = data ));
+    this.showFormUpdate = false;
+  }
 }

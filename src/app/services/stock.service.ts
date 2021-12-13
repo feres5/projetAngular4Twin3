@@ -17,4 +17,9 @@ url = 'http://localhost:8081/SpringMVC/';
   addStock(stock: Stock) {
   return this.http.post(this.url + 'ajouterStock', stock);
 }
+  updateClient(stock: Stock) {
+    return this.http.put(this.url + 'updateStock', stock);
+
+  }
+
 }

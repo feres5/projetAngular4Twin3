@@ -8,20 +8,26 @@ import {Observable} from 'rxjs';
 })
 export class ClientService {
   url = 'http://localhost:8081/SpringMVC/';
-  constructor(private http: HttpClient) {}
 
-  getListClient () {
+  constructor(private http: HttpClient) {
+  }
+
+  getListClient() {
     return this.http.get<Client[]>(this.url + 'findClients');
   }
 
   addClient(client: Client) {
     console.log(client);
     console.log(this.url + 'ajouterClient');
-     return this.http.post(this.url + 'ajouterClient', client);
+    return this.http.post(this.url + 'ajouterClient', client);
   }
+
   deleteClient(id: number) {
     return this.http.delete(this.url + 'deleteClient/' + id);
   }
 
+  updateClient(client: Client) {
+    return this.http.put(this.url + 'updateClient', client);
 
+  }
 }

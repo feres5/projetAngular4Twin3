@@ -12,6 +12,8 @@ import {Observable} from 'rxjs';
   ]
 })
 export class ListClientComponent implements OnInit {
+  clientu = new Client();
+  show = false;
 allClient: Client[];
   constructor (private clientservice: ClientService) { }
 
@@ -21,5 +23,16 @@ allClient: Client[];
 delete(client: Client) {
     this.clientservice.deleteClient(client.idClient).subscribe(() => this.clientservice.getListClient().subscribe((data) => this.allClient = data ) );
 }
+
+ // affichage de formulaire de update
+showUpdate(client: Client) {
+    this.show = !this.show;
+    this.clientu = client;
+}
+ // mise a jour client
+  update(client: Client) {
+    this.clientservice.updateClient(this.clientu).subscribe(() => this.clientservice.getListClient().subscribe((data) => this.allClient = data));
+    this.show = false;
+  }
 
 }
