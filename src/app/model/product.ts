@@ -4,5 +4,4 @@ export class Product {
   quantity: number;
   like: number;
   price: number;
-
 }

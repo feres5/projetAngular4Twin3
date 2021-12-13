@@ -12,6 +12,8 @@ export class ListProductComponent implements OnInit {
 
   products: Product[];
   filteredString = '';
+  optionSelected = 'Order By';
+
   listProducts: Observable<Product[]>;
 
   constructor(private productService: ProductService) {
@@ -41,4 +43,10 @@ export class ListProductComponent implements OnInit {
   // ngOnDestroy(): void {
   //   this.subscription.unsubscribe();
   // }
+
+
+  onOptionsSelected($event: string) {
+    console.log($event);
+    console.log(this.optionSelected);
+  }
 }
