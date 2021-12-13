@@ -1,0 +1,27 @@
+<div class="card"
+     style="width: 18rem;">
+  <img class="card-img-top"
+       src="https://picsum.photos/id/1/900/500"
+       alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ rayon.libelle }}</h5>
+    <p class="card-text"> Code : <strong>{{ rayon.code }} $ </strong>
+    </p>
+    <a href="#" class="btn btn-primary"></a>
+
+    <button class="btn btn-danger btn-sm rounded-0 pull-right m-1"
+            type="button"
+            (click)="onDeleteItem(rayon.idRayon)"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Delete"><i class="fa fa-trash"></i></button>
+    <a [routerLink]="index+'/edit'">
+      <button class="btn btn-success btn-sm rounded-0 pull-right m-1"
+              type="button"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Edit"><i class="fa fa-edit"></i></button>
+    </a>
+  </div>
+</div>
+

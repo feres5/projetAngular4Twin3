@@ -33,9 +33,9 @@ export class ListRayonsComponent implements OnInit {
   }
 
 
-  onDelete(index: number) {
+  onDelete(event: { idRayon: number }) {
 
-    this.rayonService.deleteRayon(index).subscribe(data => {
+    this.rayonService.deleteRayon(event.idRayon).subscribe(data => {
       this.ngOnInit();
     });
   }

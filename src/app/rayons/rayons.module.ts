@@ -6,6 +6,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RayonsRoutingModule} from './rayons-routing.module';
 import {RayonEditComponent} from './rayon-edit/rayon-edit.component';
+import { RayonItemComponent } from './rayon-item/rayon-item.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {RayonEditComponent} from './rayon-edit/rayon-edit.component';
     ListRayonsComponent,
     RayonEditComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    RayonItemComponent
 
   ]
 })

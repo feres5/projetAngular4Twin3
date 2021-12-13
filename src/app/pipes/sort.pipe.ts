@@ -6,7 +6,7 @@ import {Rayon} from '../model/rayon';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(array: Array<Rayon>, propName: string): unknown {
+  transform(array: Array<Rayon[]>, propName: string): unknown {
     array.sort((a: any, b: any) => {
       if (a[propName] < b[propName]) {
         return -1;
