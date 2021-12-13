@@ -35,17 +35,18 @@ export class RayonEditComponent implements OnInit {
     if (this.editMode) {
       this.rayonService.updateRayon(this.rayonForm.value).subscribe(response => {
         // console.log(response);
+        this.onCancel();
       }, error => {
         console.log(error);
       });
     } else {
       this.rayonService.PostRayon(this.rayonForm.value).subscribe(response => {
-        // console.log(response);
+         console.log(response);
+        this.onCancel();
       }, error => {
         console.log(error);
       });
     }
-    this.onCancel();
   }
 
   onCancel() {
@@ -68,16 +69,24 @@ export class RayonEditComponent implements OnInit {
       rayonLibelle = rayon.libelle;
       rayonCode = rayon.code;
     }
-    this.rayonForm = new FormGroup({
-      'idRayon': new FormControl(
-        rayonId,
-        [Validators.required, Validators.min(0)]
-      ),
-      'libelle': new FormControl(rayonLibelle, Validators.required),
-      'code': new FormControl(
-        rayonCode,
-        [Validators.required]
-      )
-    });
+    if (this.editMode) {
+      this.rayonForm = new FormGroup({
+        'idRayon': new FormControl(rayonId),
+        'libelle': new FormControl(rayonLibelle, Validators.required),
+        'code': new FormControl(
+          rayonCode,
+          [Validators.required]
+        )
+      });
+    } else {
+      this.rayonForm = new FormGroup({
+        'libelle': new FormControl(rayonLibelle, Validators.required),
+        'code': new FormControl(
+          rayonCode,
+          [Validators.required]
+        )
+      });
+    }
+
   }
 }

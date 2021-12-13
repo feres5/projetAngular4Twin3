@@ -20,17 +20,17 @@ export const navItems: INavData[] = [
     icon: 'icon-drop'
   },
   {
-    name: 'Products',
+    name: 'Rayons',
     icon: 'icon-pie-chart',
     children: [
       {
-        name: '  All Products',
-        url: '/products',
+        name: '  All rayons',
+        url: '/rayons',
         icon: 'icon-pie-chart'
       },
       {
-        name: '  Add product',
-        url: '/products/add',
+        name: '  Add rayon',
+        url: '/rayons/add',
         icon: 'icon-pencil'
       }
     ]
