@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FactureServiceService} from '../../services/facture-service.service';
 import {Facture} from '../../model/facture';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 })
 export class NewFactureComponent implements OnInit {
   factureForm: FormGroup;
-  facture: Facture;
 
   constructor(private service: FactureServiceService,
               private fb: FormBuilder,
@@ -19,10 +18,25 @@ export class NewFactureComponent implements OnInit {
 
   ngOnInit(): void {
     this.factureForm = this.fb.group({
-      montantRemise: [null, Validators.required],
-      montanttFacture: [null, Validators.required],
       date: [null, Validators.required],
-      active: [null, Validators.required]
+      active: [null, Validators.required],
+      detailFactures: this.fb.array([
+        this.addDetailFactureFormGroup()
+      ])
+    });
+  }
+
+  addDetailFactureClick(): void {
+    (<FormArray>this.factureForm.get('detailFactures')).push(this.addDetailFactureFormGroup());
+  }
+
+  addDetailFactureFormGroup(): FormGroup {
+    return this.fb.group({
+      pourcentageRemise: [null, Validators.required],
+      qte: [null, Validators.required],
+      produit: this.fb.group({
+        idProduit: [null, Validators.required]
+      })
     });
   }
 

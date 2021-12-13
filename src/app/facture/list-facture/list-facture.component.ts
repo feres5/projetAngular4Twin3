@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FactureServiceService} from '../../services/facture-service.service';
 import {Facture} from '../../model/facture';
-import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-list-facture',
@@ -10,13 +9,18 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ListFactureComponent implements OnInit {
   allFactures: Facture[];
+  totalLength: any;
+  page: number = 1 ;
 
   constructor(private service: FactureServiceService) { }
 
   ngOnInit(): void {
     console.log('retrive ');
     this.service.getListFacture().subscribe(
-      (data) => this.allFactures = data
+      (data) => {
+        this.allFactures = data;
+        this.totalLength = data.length;
+      }
     );
   }
 

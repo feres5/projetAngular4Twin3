@@ -14,7 +14,7 @@
       </tr>
       </thead>
       <tbody class="table-light ">
-      <tr *ngFor="let facture of allFactures">
+      <tr *ngFor="let facture of allFactures | paginate: {itemsPerPage: 1, currentPage: page, totalItems: totalLength}">
         <td [routerLink]="['detailfacture/',facture.idFacture]">{{facture.idFacture}}</td>
         <td>{{facture.montantRemise}}</td>
         <td>{{facture.montanttFacture}}</td>
@@ -28,8 +28,12 @@
           <button class="btn btn-outline-warning" [routerLink]="['update/',facture?.idFacture]">modify</button>
           <button class="btn btn-outline-danger" (click)="delete(facture)">Delete</button>
         </td>
+
       </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="page = $event"> </pagination-controls>
   </div>
 </div>
+
+

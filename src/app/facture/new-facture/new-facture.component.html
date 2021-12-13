@@ -3,28 +3,11 @@
     <div class="col-sm-6 offset-md-3">
       <div class="card">
         <div class="card-header">
-          <strong>New Facrure</strong>
-          <small>Form</small>
+          <strong>New Facture: </strong>
         </div>
 
         <div class="card-body">
           <form [formGroup]="factureForm" (ngSubmit)="addFacture(factureForm)" class="form-horizontal">
-
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="company">montantRemise</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" formControlName="montantRemise" id="company"
-                       placeholder="Enter montant remise">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="vat">montant Facture</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" formControlName="montanttFacture" id="vat"
-                       placeholder="Enter montat facture">
-              </div>
-            </div>
 
             <div class="form-group row">
               <label class="col-md-3 col-form-label" for="date-input">Date</label>
@@ -45,26 +28,41 @@
                 </div>
               </div>
             </div>
-            <!--
-             <div class="row">
-               <div class="form-group col-sm-8">
-                 <label for="city">active</label>
-                 <input type="text" class="form-control" id="city" placeholder="Enter your city">
-               </div>
-               <div class="form-group col-sm-4">
-                 <label for="postal-code">Postal Code</label>
-                 <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
-               </div>
-             </div>
-             -->
-            <!--/.row-->
 
-            <!--
-            <div class="form-group">
-              <label for="country">Country</label>
-              <input type="text" class="form-control" id="country" placeholder="Country name">
+            <div>
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary" (click)="addDetailFactureClick()">add detail facture</button>
+                </div>
+              </div>
+              <div formArrayName="detailFactures" *ngFor="let detail of factureForm.get('detailFactures')['controls']; let i = index;">
+                <div [formGroupName]="i">
+                  <div formGroupName="produit">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="company">id produit</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="idProduit" id="company"
+                               placeholder="Enter montant remise">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="vat">quantite</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" formControlName="qte" id="vat"
+                             placeholder="Enter montat facture">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="vat">pourcentage Remise</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" formControlName="pourcentageRemise" id=""
+                             placeholder="Enter montat facture">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            -->
             <div class="card-footer">
               <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
               <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
