@@ -28,7 +28,7 @@ export const navItems: INavData[] = [
         icon: 'icon-pie-chart'
       },
       {
-        name: '  Add rayon',
+        name: '  Add Promotion',
         url: '/promotions/add',
         icon: 'icon-pencil'
       }

@@ -60,34 +60,44 @@ export class PromotionEditComponent implements OnInit {
   }
 
   private initForm() {
-    // let rayonId = null;
-    // let rayonLibelle = '';
-    // let rayonCode = '';
-    //
-    // if (this.editMode) {
-    //   const rayon = this.rayonService.getRayon(this.id);
-    //   rayonId = rayon.idRayon;
-    //   rayonLibelle = rayon.libelle;
-    //   rayonCode = rayon.code;
-    // }
-    // if (this.editMode) {
-    //   this.rayonForm = new FormGroup({
-    //     'idRayon': new FormControl(rayonId),
-    //     'libelle': new FormControl(rayonLibelle, Validators.required),
-    //     'code': new FormControl(
-    //       rayonCode,
-    //       [Validators.required]
-    //     )
-    //   });
-    // } else {
-    //   this.rayonForm = new FormGroup({
-    //     'libelle': new FormControl(rayonLibelle, Validators.required),
-    //     'code': new FormControl(
-    //       rayonCode,
-    //       [Validators.required]
-    //     )
-    //   });
-    // }
+    let promotionId = null;
+    let promotionLibelle = '';
+    let promotionActive = false;
+    let promotionMontant = null;
+
+    if (this.editMode) {
+      const promotion = this.promotionService.getPromotion(this.id);
+      promotionId = promotion.idPromotion;
+      promotionLibelle = promotion.libelle;
+      promotionActive = promotion.active;
+      promotionMontant = promotion.montant;
+    }
+    if (this.editMode) {
+      this.promotionForm = new FormGroup({
+        'idPromotion': new FormControl(promotionId),
+        'libelle': new FormControl(promotionLibelle, Validators.required),
+        'montant': new FormControl(
+          promotionMontant,
+          [Validators.required, Validators.min(0)]
+        ),
+        'active': new FormControl(
+          promotionActive,
+          [Validators.required, Validators.min(0)]
+        )
+      });
+    } else {
+      this.promotionForm = new FormGroup({
+        'libelle': new FormControl(promotionLibelle, Validators.required),
+        'montant': new FormControl(
+          promotionMontant,
+          [Validators.required, Validators.min(0)]
+        ),
+        'active': new FormControl(
+          promotionActive,
+          [Validators.required, Validators.min(0)]
+        )
+      });
+    }
 
   }
 }

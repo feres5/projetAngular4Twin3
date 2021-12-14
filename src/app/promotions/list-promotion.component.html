@@ -13,7 +13,7 @@
             (ngModelChange)='onOptionsSelected($event)'>
       <option selected>Order By</option>
       <option value="libelle">libelle</option>
-      <option value="code">code</option>
+      <option value="montant">montant</option>
     </select>
   </div>
 </div>
@@ -21,11 +21,11 @@
 <hr>
 <div class="row">
     <app-promotion-item class="col-md-auto"
-      *ngFor="let rayon of listpromotions | async | filter:filteredString:'libelle'
+      *ngFor="let promotion of listpromotions | async | filter:filteredString:'libelle'
      | sort:optionSelected  ; let i = index"
-      [rayon]="rayon"
+      [promotion]="promotion"
       [index]="i"
-      (rayonDelete)="onDelete($event)">
+      (promotionDelete)="onDelete($event)">
     </app-promotion-item>
 
 </div>

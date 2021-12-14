@@ -1,42 +1,54 @@
 <div class="row">
   <div class="col-sm-10">
-    <form [formGroup]="rayonForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="promotionForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
             <label for="libelle">Title</label>
             <input
               type="text"
-              placeholder="Enter Rayon libelle"
+              placeholder="Enter Promotion libelle"
               id="libelle"
               formControlName="libelle"
               class="form-control">
-            <span *ngIf="!rayonForm.get('libelle').valid && rayonForm.get('libelle').touched "
-                  class="help-block"> Please enter a Rayon libelle</span>
+            <span *ngIf="!promotionForm.get('libelle').valid && promotionForm.get('libelle').touched "
+                  class="help-block"> Please enter a Promotion libelle</span>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="code">Code</label>
+            <label for="montant">Montant</label>
             <input
               type="text"
-              placeholder="Enter rayon Code"
-              id="code"
-              formControlName="code"
+              placeholder="Enter promotion Montant"
+              id="montant"
+              formControlName="montant"
               class="form-control">
-            <span *ngIf="!rayonForm.get('code').valid && rayonForm.get('code').touched "
-                  class="help-block"> Please enter a Rayon code</span>
+            <span *ngIf="!promotionForm.get('montant').valid && promotionForm.get('montant').touched "
+                  class="help-block"> Please enter a valid Montant ( > 0)</span>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
+          <div class="form-group">
+            <label class="col-form-label" >Active</label>
+            <input
+              type="checkbox"
+              formControlName="active"
+              class="custom-checkbox">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
           <button
             type="submit"
             class="btn btn-success"
-            [disabled]="!rayonForm.valid">Save
+            [disabled]="!promotionForm.valid">Save
           </button>
           <button type="button" class="btn btn-danger" (click)="onCancel()">
             Cancel
