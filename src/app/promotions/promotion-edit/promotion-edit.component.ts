@@ -90,7 +90,7 @@ export class PromotionEditComponent implements OnInit {
         'libelle': new FormControl(promotionLibelle, Validators.required),
         'montant': new FormControl(
           promotionMontant,
-          [Validators.required, Validators.min(0)]
+          [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]
         ),
         'active': new FormControl(
           promotionActive,
