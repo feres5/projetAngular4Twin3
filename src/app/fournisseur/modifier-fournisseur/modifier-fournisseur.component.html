@@ -1,0 +1,27 @@
+<p>modifier-fournisseur works!</p>
+<div class="container">
+<div>
+  <h2>Modifier un fournisseur :</h2>
+</div>
+
+<form >
+  <div  class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID fournisseur</label>
+    <input type="text" [(ngModel)]="newFournisseur.idFournisseur" name="idFournisseur" class="form-control">
+  </div>
+
+  <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Produit</label>
+    <input type="text"[(ngModel)]= "newFournisseur.libelle" name="nomFournisseur" class="form-control">
+  </div>
+
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >code Produit</label>
+    <input type="number" [(ngModel)]= "newFournisseur.code" name="codeFournisseur" class="form-control">
+  </div>
+  <div class="mt-2">
+    <button type="submit" (click)="modifierFournisseur()" class="btn btn-success">Modifier</button>
+  </div>
+
+</form>
+</div>

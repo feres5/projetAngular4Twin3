@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div>
+    <h2>Ajouter un Produit :</h2>
+  </div>
+
+  <form >
+    <div  class="col-sm-2 col-md-2 col-lg-2">
+      <label >ID Produit</label>
+      <input type="text" [(ngModel)]="newProduit.idProduit" name="idProduit" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+      <label >Nom Produit</label>
+      <input type="text"[(ngModel)]= "newProduit.libelle" name="nomProduit" class="form-control" required="true" placeholder="alphabet seulement" minlength="4" maxlength="8">
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >code Produit</label>
+      <input type="number" [(ngModel)]= "newProduit.code" name="codeProduit" class="form-control" required placeholder="nombre seulement" maxlength="6" >
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >Prix unitaire Produit</label>
+      <input type="number" [(ngModel)]= "newProduit.prixUnitaire" name="prixProduit" class="form-control">
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >image produit</label>
+      <input type="file" (change)="onSelectedFile($event)" name="file" class="form-control" multiple />
+    </div>
+
+    <div class="mt-2">
+      <app-boutton couleur="green" text="ajouter"  type="submit" (click)="addProduit()" class="btn btn-success">Ajouter</app-boutton>
+      <div>
+        <h3>{{ message }}</h3>
+      </div>
+
+    </div>
+  </form>
+</div>
+

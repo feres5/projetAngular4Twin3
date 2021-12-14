@@ -1,0 +1,31 @@
+
+
+<h1>Nos produits </h1>
+
+<nav class="navbar">
+    <input class="form-control" type="text" name="name" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="enter first name to search">
+</nav>
+
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr> <th> image</th> <th>nom</th> <th>code</th> <th>prix</th> <th></th> <th></th> </tr>
+        </thead>
+        <tbody *ngFor="let produit of produits" >
+        <tr>
+          <td><img src="file:\\\C:\Users\ASUS\projetAngular4Twin3\assets\N.png"></td>
+          <td>{{produit.libelle}}</td>
+          <td>{{produit.code}}</td>
+          <td>{{produit.prixUnitaire}}</td>
+          <td> <app-boutton couleur="blue" text="modifier" [routerLink]="['/produit/modifier',produit.idProduit]"></app-boutton></td>
+          <td><app-boutton couleur="red" text="supprimer" (click)="supprimerProduit(produit)">Supprimer </app-boutton></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+

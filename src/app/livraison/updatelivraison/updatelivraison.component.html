@@ -1,0 +1,25 @@
+<form #modelF="ngForm">
+    <label>Id livraison</label>
+    <input type="number" class="form-control" name="num_livraison" [(ngModel)]="livraison.num_livraison"
+        #idPromotion="ngModel" disabled>
+    <label>date_livraison</label>
+    <input type="date" class="form-control" [(ngModel)]="livraison.date_livraison" #libelle="ngModel"
+        name="date_livraison">
+
+    <label>adresse</label>
+    <input type="text" class="form-control" name="adresse" [(ngModel)]="livraison.adresse" #montant="ngModel">
+
+
+    <label>destinateur</label>
+    <input type="text" class="form-control" name="destinateur" [(ngModel)]="livraison.destinateur" #montant="ngModel">
+
+
+    <label>frais_livraison</label>
+    <input type="number" class="form-control" name="frais_livraison" [(ngModel)]="livraison.frais_livraison"
+        #montant="ngModel">
+
+
+
+
+        <input type="submit" class="btn btn-primary" value="Update" (click)="UpdateLivraison(modelF.value)">
+</form>

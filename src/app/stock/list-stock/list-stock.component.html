@@ -1,0 +1,54 @@
+<table class="table table-hover" *ngIf="showFormUpdate==false">
+  <thead>
+  <tr>
+    <th>Libelle stock</th>
+    <th>Quantité</th>
+    <th>Quantité min</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let stock of stocks">
+    <td>{{stock.libelleStock}}</td>
+    <td>{{stock.qte}}</td>
+    <td>{{stock.qteMin}}</td>
+
+
+    <td>
+      <button class="btn btn-outline-success" (click)="showUpdate(stock)" >
+        Update
+      </button>
+      <button class="btn btn-outline-danger" (click)="delete(stock)" >
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- formulaire Update -->
+<form class="w-50 mx-auto" *ngIf="showFormUpdate==true">
+
+  <h1>Update {{stocku.libelleStock}}</h1>
+  <div class="form-group">
+    <label>Nom:</label>
+    <input type="text" name="qte" class="form-control"
+
+           required minlength="3" pattern="[a-zA-Z]+$" [(ngModel)]="stocku.qte">
+
+  </div>
+  <div class="form-group">
+    <label>Prénom:</label>
+    <input name="qtemin" type="text" class="form-control" [(ngModel)]="stocku.qteMin">
+  </div>
+  <div class="form-group">
+    <label>Email:</label>
+    <input name="libellestock" type="text" class="form-control" [(ngModel)]="stocku.libelleStock">
+  </div>
+  <br>
+  <button class="btn btn-outline-success" (click)="update(stocku)" >
+    Update
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-warning" (click)="this.showFormUpdate = false">Back to list</button>
+</form>

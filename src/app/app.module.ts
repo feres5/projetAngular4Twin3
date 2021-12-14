@@ -45,6 +45,10 @@ import { ChartsModule } from 'ng2-charts';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RayonsModule} from './rayons/rayons.module';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {PromotionsModule} from "./promotions/promotions.module";
+import {FilterPipe} from "./pipes/filter.pipe";
+import {SortPipe} from "./pipes/sort.pipe";
 
 
 
@@ -67,7 +71,10 @@ import {RayonsModule} from './rayons/rayons.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RayonsModule
+    RayonsModule,
+    PromotionsModule,
+    Ng2SearchPipeModule,
+
   ],
   declarations: [
     AppComponent,
@@ -75,7 +82,7 @@ import {RayonsModule} from './rayons/rayons.module';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   providers: [
     {

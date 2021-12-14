@@ -1,0 +1,65 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <strong>update Facture: </strong>
+          <small>{{facture.idFacture}}</small>
+        </div>
+
+        <div class="card-body">
+          <form (ngSubmit)="modFacture(factureForm)" class="form-horizontal">
+            <!-- shared part of the form group -->
+            <app-shared-facture-form [header]="factureForm.get('header')"
+                                     [parentGroup]="factureForm"></app-shared-facture-form>
+            <!-- not shared part of the form group  -->
+
+
+            <div class="form-group row">
+              <div class="col-md-3">
+                <button type="button" class="btn btn-primary" (click)="addDetailFactureClick()">add detail facture
+                </button>
+              </div>
+            </div>
+
+            <div [formGroup]="factureForm">
+              <div formArrayName="detailFactures"
+                   *ngFor="let detail of factureForm.get('detailFactures')['controls']; let i = index;">
+                <div [formGroupName]="i">
+                  <div formGroupName="produit">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="company">id produit</label>
+                      <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="idProduit" id="company"
+                               placeholder="Enter montant remise">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="vat">quantite</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" formControlName="qte" id="vat"
+                             placeholder="Enter montat facture">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="vat">pourcentage Remise</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" formControlName="pourcentageRemise" id=""
+                             placeholder="Enter montat facture">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+              <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div><!--/.col-->
+  </div>
+</div>

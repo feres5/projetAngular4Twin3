@@ -1,0 +1,28 @@
+
+<form [formGroup]="livraisonForm"(ngSubmit)="Savelivraison(livraisonForm.value)" >
+    <div class="mb-3">
+     
+      
+      
+      <label for="" class="form-label"><h3>date_livraison</h3>:</label>
+      <input formControlName="date_livraison" type="date" class="form-control" id="date_livraison">
+      <div *ngIf="date_livraison?.errors?.required"  > <span class="help-block" > Date  is required.</span> <br>  <br> </div>
+      
+      <label for="" class="form-label"><h3>adresse</h3></label>
+      <input formControlName="adresse" type="text" class="form-control" id="adresse">
+      <div *ngIf="adresse?.errors?.required"  > <span class="help-block" >adresse  is required.</span> <br>  <br> </div>
+
+      <label for="" class="form-label"><h3>destinateur</h3></label>
+      <input formControlName="destinateur" type="text" class="form-control" id="destinateur">
+      <div *ngIf="destinateur?.errors?.required"  > <span class="help-block" >destinateur  is required.</span> <br>  <br> </div>
+
+      <label for="" class="form-label"><h3>frais_livraison</h3></label>
+      <input formControlName="frais_livraison" type="number" class="form-control" id="frais_livraison">
+      <div *ngIf="frais_livraison?.errors?.required"  > <span class="help-block" >frais livraison  is required.</span> <br>  <br> </div>
+
+      <br>
+
+     </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="livraisonForm.invalid">Submit</button>
+  </form>

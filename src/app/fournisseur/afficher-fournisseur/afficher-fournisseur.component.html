@@ -1,0 +1,22 @@
+
+<h1>Nos Fournisseur</h1>
+
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr> <th>nom</th> <th>code</th> <th></th> <th></th> <th></th> </tr>
+        </thead>
+        <tbody *ngFor="let fournisseur of fournisseurs">
+        <tr >
+          <td>{{fournisseur.libelle}}</td>
+          <td>{{fournisseur.code}}</td>
+          <td><a class="btn btn-success" [routerLink]="['/fournisseur/modifierF',fournisseur.idFournisseur]">Modifier</a></td>
+          <td><a class="btn btn-danger" (click)="supprimerFournisseur(fournisseur)">Supprimer</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

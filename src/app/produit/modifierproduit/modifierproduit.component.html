@@ -1,0 +1,33 @@
+<p>ajouterproduit works!</p>
+<div class="container">
+  <div>
+    <h2>Ajouter un Produit :</h2>
+  </div>
+
+  <form >
+    <div  class="col-sm-2 col-md-2 col-lg-2">
+      <label >ID Produit</label>
+      <input type="text" [(ngModel)]="newProduit.idProduit" name="idProduit" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+      <label >Nom Produit</label>
+      <input type="text"[(ngModel)]= "newProduit.libelle" name="nomProduit" class="form-control">
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >code Produit</label>
+      <input type="number" [(ngModel)]= "newProduit.code" name="codeProduit" class="form-control">
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >Prix unitaire Produit</label>
+      <input type="number" [(ngModel)]= "newProduit.prixUnitaire" name="prixProduit" class="form-control">
+    </div>
+
+    <div class="mt-2">
+      <button type="submit" (click)="modifierProduit()" class="btn btn-success">Modifier</button>
+      </div>
+
+  </form>
+</div>

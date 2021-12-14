@@ -1,12 +1,14 @@
 import {NgModule} from '@angular/core';
-import {ListRayonsComponent} from './list-rayon.component';
+import {
+  ListPromotionsComponent
+} from './list-promotion.component';
 import {FilterPipe} from '../pipes/filter.pipe';
 import {SortPipe} from '../pipes/sort.pipe';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RayonsRoutingModule} from './rayons-routing.module';
-import {RayonEditComponent} from './rayon-edit/rayon-edit.component';
-import { RayonItemComponent } from './rayon-item/rayon-item.component';
+import {PromotionsRoutingModule} from './promotions-routing.module';
+import {PromotionEditComponent} from './promotion-edit/promotion-edit.component';
+import { PromotionItemComponent } from './promotion-item/promotion-item.component';
 import {ApplicationPipesModule} from "../applicationPipesModule";
 
 
@@ -16,13 +18,13 @@ import {ApplicationPipesModule} from "../applicationPipesModule";
     ReactiveFormsModule,
     FormsModule,
     ApplicationPipesModule,
-    RayonsRoutingModule,
+    PromotionsRoutingModule,
   ],
   declarations: [
-    ListRayonsComponent,
-    RayonEditComponent,
-    RayonItemComponent
+    ListPromotionsComponent,
+    PromotionEditComponent,
+    PromotionItemComponent
 
   ]
 })
-export class RayonsModule {}
+export class PromotionsModule {}

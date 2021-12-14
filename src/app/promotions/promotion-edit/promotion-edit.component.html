@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-10">
+    <form [formGroup]="rayonForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="libelle">Title</label>
+            <input
+              type="text"
+              placeholder="Enter Rayon libelle"
+              id="libelle"
+              formControlName="libelle"
+              class="form-control">
+            <span *ngIf="!rayonForm.get('libelle').valid && rayonForm.get('libelle').touched "
+                  class="help-block"> Please enter a Rayon libelle</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="code">Code</label>
+            <input
+              type="text"
+              placeholder="Enter rayon Code"
+              id="code"
+              formControlName="code"
+              class="form-control">
+            <span *ngIf="!rayonForm.get('code').valid && rayonForm.get('code').touched "
+                  class="help-block"> Please enter a Rayon code</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!rayonForm.valid">Save
+          </button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

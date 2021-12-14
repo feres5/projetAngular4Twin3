@@ -91,6 +91,34 @@ export const routes: Routes = [
         path: 'rayons',
         loadChildren: () => import('./rayons/rayons.module').then(m => m.RayonsModule)
       },
+      {
+        path: 'promotions',
+        loadChildren: () => import('./promotions/promotions.module').then(m => m.PromotionsModule)
+      },
+      {
+        path: 'produit',
+        loadChildren: () => import('./produit/produit.module').then(m => m.ProduitModule)
+      },
+      {
+        path: 'fournisseur',
+        loadChildren: () => import('./fournisseur/fournisseur.module').then(m => m.FournisseurModule)
+      },
+      {
+        path: 'facture',
+        loadChildren: () => import('./facture/facture.module').then(m => m.FactureModule)
+      },
+      {
+        path: 'livraison',
+        loadChildren: () => import('./livraison/livraison.module').then(m => m.LivraisonModule)
+      },
+      {
+        path: 'client',
+        loadChildren: () => import('./client/client.module').then(m => m.ClientModule)
+      },
+      {
+        path: 'stock',
+        loadChildren: () => import('./stock/stock.module').then(m => m.StockModule)
+      }
 
     ]
   },

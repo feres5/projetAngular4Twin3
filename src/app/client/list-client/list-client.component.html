@@ -1,0 +1,90 @@
+<table class="table table-hover" *ngIf="show==false">
+  <thead>
+  <tr>
+    <th>nom</th>
+    <th>prenom</th>
+    <th>email</th>
+    <th>password</th>
+    <th>Date de naissance</th>
+    <th>Categorie</th>
+    <th>profession</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let client of allClient">
+    <td>{{client.nom}}</td>
+    <td>{{client.prenom}}</td>
+    <td>{{client.email}}</td>
+    <td>{{client.password}}</td>
+    <td>{{client.dateNaissance | date: 'dd/MM/yyyy'}}</td>
+    <td>{{client.categorieClient}}</td>
+    <td>{{client.profession}}</td>
+    <td>
+      <button class="btn btn-outline-success" (click)="showUpdate(client)">
+        Update
+      </button>
+      <button class="btn btn-outline-danger" (click)="delete(client)">
+        delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<!-- formulaire Update -->
+<form class="w-50 mx-auto" *ngIf="show==true">
+
+  <h1>Update {{clientu.prenom}}</h1>
+  <div class="form-group">
+    <label>Nom:</label>
+    <input type="text" name="firstName" class="form-control"
+
+           required minlength="3" pattern="[a-zA-Z]+$" [(ngModel)]="clientu.nom">
+
+  </div>
+  <div class="form-group">
+    <label>Prénom:</label>
+    <input name="lastName" type="text" class="form-control" [(ngModel)]="clientu.prenom">
+  </div>
+  <div class="form-group">
+    <label>Email:</label>
+    <input name="email" type="email" class="form-control" [(ngModel)]="clientu.email">
+  </div>
+  <div class="form-group">
+    <label>Password:</label>
+    <input name="password" type="password" class="form-control" [(ngModel)]="clientu.password">
+  </div>
+  <!--<div class="form-group">
+    <label>Picture:</label>
+    <input name="picture" type="text" class="form-control">
+  </div>-->
+  <div class="form-group">
+    <label>BirthDate:</label>
+    <input name="dateNaissance" type="date" class="form-control" [(ngModel)]="clientu.dateNaissance">
+  </div>
+  <div class="form-group">
+    <label>Categorie Client:</label>
+    <input name="categorieClient" type="text" class="form-control" [(ngModel)]="clientu.categorieClient">
+  </div>
+  <div class="form-group">
+    <label>Profession:</label>
+    <input name="profession" type="text" class="form-control" [(ngModel)]="clientu.profession">
+  </div>
+  <br>
+  <button class="btn btn-outline-success" (click)="update(clientu)" >
+    Update
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-warning" (click)="this.show = false">Back to list</button>
+</form>
+
+
+
+
+
+
+
+
+
+

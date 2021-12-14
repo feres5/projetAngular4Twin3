@@ -1,0 +1,35 @@
+<p>ajouter-fournisseur works!</p>
+
+<div class="container">
+  <div>
+    <h2>Ajouter un Fournisseur :</h2>
+  </div>
+
+  <form >
+    <div  class="col-sm-2 col-md-2 col-lg-2">
+      <label >ID Fournisseur</label>
+      <input type="text" [(ngModel)]="newFournisseur.idFournisseur" name="idFournisseur" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+      <label >Nom Fournisseur</label>
+      <input type="text" [(ngModel)]= "newFournisseur.libelle" name="nomFournisseur" class="form-control">
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >code Fournisseur</label>
+      <input type="number" [(ngModel)]= "newFournisseur.code" name="codeFournisseur" class="form-control">
+    </div>
+
+
+
+    <div class="mt-2">
+      <button type="submit" (click)="addFournisseur()" class="btn btn-success">Ajouter</button>
+      <div>
+        <h3>{{ message }}</h3>
+      </div>
+
+    </div>
+  </form>
+</div>
+

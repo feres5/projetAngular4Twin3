@@ -1,0 +1,41 @@
+<form>
+  <!-- shared part of the form group -->
+  <app-shared-facture-form [header]="form1.get('header')" [parentGroup]="form1" ></app-shared-facture-form>
+  <!-- not shared part of the form group  -->
+  <div class="form-group row">
+    <div class="col-md-3">
+      <button type="button" class="btn btn-primary" (click)="addDetailFactureClick()">add detail facture</button>
+    </div>
+  </div>
+  <div [formGroup]="form1">
+
+    <div formArrayName="detailFactures" *ngFor="let detail of form1.get('detailFactures')['controls']; let i = index;">
+      <div [formGroupName]="i">
+        <div formGroupName="produit">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="company">id produit</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" formControlName="idProduit" id="company"
+                     placeholder="Enter montant remise">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="vat">quantite</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="qte" id="vat"
+                   placeholder="Enter montat facture">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="vat">pourcentage Remise</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="pourcentageRemise" id=""
+                   placeholder="Enter montat facture">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</form>

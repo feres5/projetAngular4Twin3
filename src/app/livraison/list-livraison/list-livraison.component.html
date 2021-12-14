@@ -1,0 +1,85 @@
+
+<div>
+    <button class="btn btn-primary" (click)="open(mymodal)">Add livraison</button>
+    <div>
+      <label for="searchValue" class="col-sm-7 col-form-label" style="text-align: right ;"> Search: </label>
+      <input type="text" [(ngModel)]="searchValue" class="form-inline"  id="searchValue" placeholder="search livraison">
+    </div>
+ 
+
+</div>
+
+<table class="table">
+    <thead>
+        
+        <tr>
+    
+            <th scope="col">num_livraison </th>
+            <th scope="col">date_livraison </th>
+         
+            <th scope="col">adresse </th>
+            <th scope="col">destinateur </th>
+            <th scope="col">frais_livraison</th>
+            <th scope="col">action</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let li of ListLivraison  | searchfilter:searchValue | paginate: { itemsPerPage: 4, currentPage: page } let i=index; ">
+            <th scope="row">{{li.num_livraison}}</th>
+            <td>{{li.date_livraison }}</td>
+            <td>{{li.adresse }}</td>
+            <td>{{li.destinateur}}</td>
+            <td>{{li.frais_livraison}}</td>
+
+            <td> <button class="btn btn-danger" (click)="Delete(li.num_livraison)"> Delete</button>
+            
+              <button class="btn btn-primary"  (click)="open(mymodalupdate)"  > Update</button>
+            </td>
+            
+        
+            <ng-template #mymodalupdate let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Update livraison</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    
+
+                   
+                    <app-updatelivraison   [id]="li.num_livraison"  ></app-updatelivraison>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+                </div>
+              
+              </ng-template>
+        </tr>
+        <pagination-controls class="text-center"  (pageChange)="page = $event"></pagination-controls>
+  
+     
+     
+    </tbody>
+</table>
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add livraison</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <app-addlivraison></app-addlivraison>
+    
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+ 
+  
+  
+

@@ -1,0 +1,33 @@
+<div class="row">
+
+  <div class="form-group col-md-3">
+    <input class="form-control"
+           placeholder="Type to search..."
+           [(ngModel)]="filteredString">
+
+  </div>
+  <div class="form-group col-md-3">
+    <select class="form-select"
+            aria-label="Default select example"
+            [(ngModel)]='optionSelected'
+            (ngModelChange)='onOptionsSelected($event)'>
+      <option selected>Order By</option>
+      <option value="libelle">libelle</option>
+      <option value="code">code</option>
+    </select>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+    <app-promotion-item class="col-md-auto"
+      *ngFor="let rayon of listpromotions | async | filter:filteredString:'libelle'
+     | sort:optionSelected  ; let i = index"
+      [rayon]="rayon"
+      [index]="i"
+      (rayonDelete)="onDelete($event)">
+    </app-promotion-item>
+
+</div>
+
+
